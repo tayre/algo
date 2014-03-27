@@ -34,7 +34,6 @@ function BST()
 /**foo*/
 function insert(data)
 {
-    console.log('inserting: ' + data);
     var node = new Node(data, null, null);
 
     //bst doesn't yet have a root element set
@@ -87,7 +86,6 @@ function preOrder(node)
 {
     if (node !== null)
     {
-        console.log(node.show() + "");
         preOrder(node.left);
         preOrder(node.right);
     }
@@ -110,8 +108,6 @@ function findMin(node)
 
 (function main()
 {
-    console.log('main');
-
     var nums = new BST();
     nums.insert(23);
     nums.insert(45);
