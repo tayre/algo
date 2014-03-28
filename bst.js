@@ -31,7 +31,6 @@ function BST()
     this.preOrder = preOrder;
 }
 
-/**foo*/
 function insert(data)
 {
     var node = new Node(data, null, null);
@@ -46,7 +45,6 @@ function insert(data)
         var currNode = this.root;
         while (true)
         {
-
             if (data < currNode.data && currNode.left === null)
             {
                 currNode.left = node;
@@ -65,13 +63,11 @@ function insert(data)
             {
                 currNode = currNode.right;
             }
-
         }
-
     }
-
 }
 
+//in order traverse of BST rooted at node
 function inOrder(node)
 {
     if (node !== null)
@@ -82,6 +78,7 @@ function inOrder(node)
     }
 }
 
+// pre order traverse of BST rooted at node
 function preOrder(node)
 {
     if (node !== null)
@@ -91,6 +88,7 @@ function preOrder(node)
     }
 }
 
+// return minimal node in BST rooted at node
 function findMin(node)
 {
 
@@ -106,6 +104,7 @@ function findMin(node)
 
 }
 
+// entry
 (function main()
 {
     var nums = new BST();
