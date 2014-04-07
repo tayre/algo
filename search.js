@@ -1,11 +1,11 @@
-function Graph(v)
-{
+//This is BFS/DFS implementation is for SpiderMonkey RT
+
+function Graph(v) {
     this.vertices = v;
     this.edges = 0;
     this.adj = [];
     this.edgeTo = [];
-    for (var i = 0; i < this.vertices; ++i)
-    {
+    for (var i = 0; i < this.vertices; ++i) {
         this.adj[i] = [];
         this.adj[i].push("");
     }
@@ -14,25 +14,21 @@ function Graph(v)
     this.dfs = dfs;
     this.bfs = bfs;
     this.marked = [];
-    for (var i = 0; i < this.vertices; ++i)
-    {
+    for (var i = 0; i < this.vertices; ++i) {
         this.marked[i] = false;
     }
 }
 
-function addEdge(v, w)
-{
+function addEdge(v, w) {
     this.adj[v].push(w);
     this.adj[w].push(v);
     this.edges++;
 }
-function showGraph()
-{
-    for (var i = 0; i < this.vertices; ++i)
-    {
+
+function showGraph() {
+    for (var i = 0; i < this.vertices; ++i) {
         putstr(i + " -> ");
-        for (var j = 0; j < this.vertices; ++j)
-        {
+        for (var j = 0; j < this.vertices; ++j) {
             if (this.adj[i][j] != undefined)
                 putstr(this.adj[i][j] + ' ');
         }
@@ -40,16 +36,13 @@ function showGraph()
     }
 }
 
-function dfs(v)
-{
+function dfs(v) {
     this.marked[v] = true;
-    if (this.adj[v] != undefined)
-    {
+    if (this.adj[v] != undefined) {
         print("Visited vertex: " + v);
     }
 
-    for each(var w in this.adj[v])
-    {
+    for each(var w in this.adj[v]){
         if (!this.marked[w])
         {
             this.dfs(w);
@@ -57,22 +50,17 @@ function dfs(v)
     }
 }
 
-function bfs(s)
-{
+function bfs(s) {
     var queue = [];
     this.marked[s] = true;
     queue.push(s); // add to back of queue
-    while (queue.length > 0)
-    {
+    while (queue.length > 0) {
         var v = queue.shift(); // remove from front of queue
-        if (v == undefined)
-        {
+        if (v == undefined) {
             print("Visited vertex: " + v);
         }
-        for each(var w in this.adj[v])
-        {
-            if (!this.marked[w])
-            {
+        for each(var w in this.adj[v]) {
+            if (!this.marked[w]) {
                 this.edgeTo[w] = v;
                 this.marked[w] = true;
 
@@ -84,8 +72,7 @@ function bfs(s)
 
 
 
-(function main()
-{
+(function main() {
     g = new Graph(5);
     g.addEdge(0, 1);
     g.addEdge(0, 2);
